@@ -23,7 +23,7 @@ describe DockingStation do
     it 'raises an error message when dock is full' do
       bike = Bike.new
       subject.dock(bike)
-      expect { DockingStation::DEFAULT_CAPACITY.times { subject.dock(bike) } }.to raise_error("Dock is full")
+      expect { subject.capacity.times { subject.dock(bike) } }.to raise_error("Dock is full")
     end
   end
 
