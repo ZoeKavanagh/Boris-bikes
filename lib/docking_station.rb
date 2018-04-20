@@ -1,5 +1,6 @@
 class DockingStation
   attr_reader :capacity
+  attr_reader :docks
 
   DEFAULT_CAPACITY = 20
 
@@ -10,24 +11,22 @@ class DockingStation
 
   def release_bike
     raise "No bikes available" if empty?
-    @docks.pop
+    docks.pop
   end
 
   def dock(bike)
     raise "Dock is full" if full?
-    @docks << bike
+    docks << bike
   end
 
   private
-  
-  attr_reader :docks
 
   def full?
-    @docks.count >= DEFAULT_CAPACITY
+    docks.count == capacity
   end
 
   def empty?
-    @docks.empty?
+    docks.empty?
   end
 
 end
