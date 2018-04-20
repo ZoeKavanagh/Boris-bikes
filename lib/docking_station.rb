@@ -1,5 +1,4 @@
 class DockingStation
-  attr_reader :docks
   attr_reader :capacity
 
   DEFAULT_CAPACITY = 20
@@ -20,6 +19,8 @@ class DockingStation
   end
 
   private
+  
+  attr_reader :docks
 
   def full?
     @docks.count >= DEFAULT_CAPACITY
